@@ -6,10 +6,11 @@ graph TD
 
 C ==> D{匹配denyException AccessItem} == NO ==> E(拒绝访问)
 
-F == NO ==> G(拒绝访问/决策下放)
+D == YES ==> F == NO ==> G(拒绝访问/决策下放)
 
-==> H(允许访问) == NO ==> I{匹配allowException AccessItem} == YES ==>G
+F ==YES ==> I{匹配allowException AccessItem} == YES ==>G
 
+I == NO  ==> H(允许访问) 
 
 	style A fill:#ff9f2e, stroke: #333, stroke-width: 2px;
 	style B fill:#ff9f2e, stroke: #333, stroke-width: 2px;
