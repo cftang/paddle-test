@@ -2,16 +2,13 @@
 graph TD
    A([用户请求资源])
  ==> B(找到所有资源匹配的Policy)
-==> C{匹配deny AccessItem} ==> F{匹配allow AccessItem}
+==> C{匹配deny AccessItem} == NO ==> F{匹配allow AccessItem}
 
-C ==> D{匹配denyException AccessItem}
-==> E(拒绝访问)
+C ==> D{匹配denyException AccessItem} == NO ==> E(拒绝访问)
 
-==> F
-==> G(拒绝访问/决策下放)
+F == NO ==> G(拒绝访问/决策下放)
 
-==> H(允许访问)
-==> I{匹配allowException AccessItem}
+==> H(允许访问) == NO ==> I{匹配allowException AccessItem} == YES ==>G
 
 
 	style A fill:#ff9f2e, stroke: #333, stroke-width: 2px;
