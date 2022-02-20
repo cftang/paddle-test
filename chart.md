@@ -2,12 +2,12 @@
 graph TD
    A([用户请求资源])
  ==> B(找到所有资源匹配的Policy)
-==> C{匹配deny AccessItem} ==> F
+==> C{匹配deny AccessItem} ==> F{匹配allow AccessItem}
 
 C ==> D{匹配denyException AccessItem}
 ==> E(拒绝访问)
 
-==> F{匹配allow AccessItem)
+==> F
 ==> G(拒绝访问/决策下放)
 
 ==> H(允许访问)
