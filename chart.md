@@ -4,7 +4,7 @@ graph TD
  ==> B(找到所有资源匹配的Policy)
 ==> C{匹配deny AccessItem} == NO ==> F{匹配allow AccessItem}
 
-C ==> D{匹配denyException AccessItem} == NO ==> E(拒绝访问)
+C == YES ==> D{匹配denyException AccessItem} == NO ==> E(拒绝访问)
 
 D == YES ==> F == NO ==> G(拒绝访问/决策下放)
 
