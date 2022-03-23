@@ -1,33 +1,29 @@
+
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct{
-int *nums;
-int size;
-}Array;
-
-Array *getArray(int size)
+struct Book{
+char name[10];
+char type[10];
+int price;
+};
+struct Book *getBook()
 {
-Array *a=malloc(sizeof(Array));
-if(a == NULL){
-return NULL;
+struct Book b={
+.name ="C Primer",
+.type="Programme",
+.price=100,
+};
+return &b;
 }
-a->size=size;
-a->nums=malloc(sizeof(int)*size);
-if (a->nums == NULL){
-return NULL;
-}
-for(int i=0;i<size;i++){
-a->nums[i]=i;
-}
-return a;
-}
-
 int main()
 {
-Array *a=getArray(10);
-for(int i=0;i<a->size;i++){
-printf("a[i]=%d\n",a->nums[i]);
-}
-free(a);
-return 0;
+struct Book *b=getBook();
+char *name=b->name;
+char *type=b->type;
+int price=b->price;
+printf("name %s\n",name);
+printf("type =%s\n",type);
+printf("price %d\n",price);
+free(b);
 }
